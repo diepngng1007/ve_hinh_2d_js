@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bài thêm</title>
+</head>
+<body>
+    <canvas id="myCanvas" width="400" height="400" style="border:1px solid blue;"></canvas>
+    <script>
+      var canvas = document.getElementById("myCanvas");
+      var ctx = canvas.getContext("2d");
+
+      var base = 100;
+      var height = Math.sqrt(3)/2 * base;
+      var x = canvas.width/2;
+      var y = canvas.height/2 - height/2;
+
+      //vẽ hình tam giác cân
+      ctx.beginPath();
+      ctx.moveTo(x-100, y);
+      ctx.lineTo((x - base/2)-100, y + height);
+      ctx.lineTo((x + base/2)-100, y + height);
+      ctx.closePath();
+      ctx.strokeStyle = "black";
+      ctx.lineWidth = 2
+      ctx.stroke(); 
+
+
+      //vẽ hình elip đôi
+      ctx.beginPath();
+        ctx.ellipse(280,200,80,30,Math.PI/2,0,2*Math.PI);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2
+        ctx.stroke();
+        
+        ctx.beginPath();
+ 
+        ctx.ellipse(230,200,30,80,Math.PI/2,0,2*Math.PI);
+        ctx.strokeStyle = "black";
+        ctx.lineWidth = 2
+        ctx.stroke();
+
+      document.querySelector('canvas').addEventListener('click',(e)=>{
+        console.log(e.clientX);
+        console.log(e.clientY);
+      })
+    </script>
+</body>
+</html>
